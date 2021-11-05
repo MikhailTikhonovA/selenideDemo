@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.9.6'
+}
+
+allure {
+    autoconfigure = true
+    version = '2.16.0'  // Latest Allure Version
+
+    useJUnit5 {
+        version = '2.16.1' // Latest Allure Version
+    }
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.codeborne:selenide:6.0.3'
+    implementation group: 'io.qameta.allure', name: 'allure-selenide', version: '2.16.1'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.8.0-beta4'
+
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    implementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+configurations {
+    testCompile {
+        extendsFrom testImplementation
+    }
+}
+
+
+test{
+    useJUnitPlatform()
+
+    systemProperties = [
+            "selenide.browser" : 'chrome'
+    ]
+}
