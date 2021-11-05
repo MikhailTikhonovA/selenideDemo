@@ -4,7 +4,6 @@ plugins {
 }
 
 allure {
-    autoconfigure = true
     version = '2.16.0'  // Latest Allure Version
 
     useJUnit5 {
@@ -27,13 +26,6 @@ dependencies {
     implementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     implementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
-
-configurations {
-    testCompile {
-        extendsFrom testImplementation
-    }
-}
-
 
 test{
     useJUnitPlatform()
