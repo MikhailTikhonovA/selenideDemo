@@ -1,6 +1,9 @@
+package steps;
+
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
+import paths.BasicPaths;
 
 import static com.codeborne.selenide.Selenide.$x;
 
